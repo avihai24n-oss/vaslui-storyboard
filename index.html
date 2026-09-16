@@ -123,13 +123,33 @@
   font: 600 13px/1 "IBM Plex Sans", sans-serif; cursor: pointer;
 }
 
-@media (max-width: 760px) {
-  .fb-lb { place-items: stretch; }
-  .fb-box { grid-template-columns: 1fr; max-height: calc(100vh - 32px); overflow: auto; }
-  .fb-media img { max-height: 52vh; margin-inline: auto; }
-  .fb-side { border-left: 0; border-top: 1px solid var(--edge); }
-  .fb-comments { overflow: visible; }
+/* Phone: one scrolling column, finger-sized controls, and 16px fields so iOS doesn't zoom on tap. */
+@supports (height: 100dvh) {
+  .fb-box { max-height: calc(100dvh - 32px); }
+  .fb-media img { max-height: calc(100dvh - 34px); }
 }
+@media (max-width: 760px) {
+  .fb-lb { place-items: stretch; padding-inline: 10px; }
+  .fb-box { grid-template-columns: 1fr; max-height: calc(100vh - 20px); overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+  .fb-media img { max-height: 55vh; margin-inline: auto; }
+  .fb-side { border-left: 0; border-top: 1px solid var(--edge); }
+  .fb-head { position: sticky; top: 0; z-index: 1; background: var(--surface); padding: 12px 14px 10px; }
+  .fb-title { font-size: 21px; }
+  .fb-close { width: 44px; height: 44px; font-size: 26px; }
+  .fb-votes { padding: 10px 14px; }
+  .fb-vote { min-height: 48px; font-size: 15px; }
+  .fb-comments { overflow: visible; padding: 12px 14px; }
+  .fb-form { padding: 10px 14px 14px; }
+  .fb-form input, .fb-form textarea { font-size: 16px; }
+  .fb-send { min-height: 44px; padding-inline: 20px; font-size: 15px; }
+  .fb-badge { top: 6px; right: 6px; }
+  .fb-intro { margin-top: -8px; }
+}
+@supports (height: 100dvh) {
+  @media (max-width: 760px) { .fb-box { max-height: calc(100dvh - 20px); } .fb-media img { max-height: 55dvh; } }
+}
+/* No keyboard shortcut hint on touch screens. */
+@media (hover: none) { .fb-hint { visibility: hidden; } .fb-hit { cursor: pointer; } }
 
 </style>
 <title>Vaslui Storyboard — All Episodes</title>
@@ -963,7 +983,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
 })();
 </script>
 
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "", "supabaseAnonKey": "", "build": "26772ab32e7f"};</script>
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "", "supabaseAnonKey": "", "build": "b11bf565bb5b"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
