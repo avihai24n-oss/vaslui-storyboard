@@ -983,7 +983,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
 })();
 </script>
 
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "", "supabaseAnonKey": "", "build": "164c429aba7f"};</script>
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "790d3d142885"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
@@ -1016,7 +1016,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
     return n;
   }
   function slug(t) {
-    return (t || "").toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "")
+    return (t || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "")
       .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 80) || "item";
   }
 
