@@ -19,6 +19,9 @@
    hidden attribute and leave the window open on load. Hidden means hidden. */
 [class^="fb-"][hidden], [class*=" fb-"][hidden] { display: none !important; }
 
+.fb-intro { margin: -12px 0 30px; font: 400 13px/1.4 "IBM Plex Mono", ui-monospace, monospace; color: var(--ink-soft); }
+.fb-intro b { color: var(--accent); font-weight: 500; }
+
 /* --- on the page --------------------------------------------------------- */
 .fb-anchor { position: relative; }
 .fb-wrap { position: relative; display: block; }
@@ -312,12 +315,7 @@ footer code { font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var
     <p class="eyebrow">Storyboard · all episodes</p>
     <h1>Escape from<br>Vaslui</h1>
     <p class="lede">The storyboard, characters and script for the whole series — one tab per episode. <strong>Episode 3 is drawn in a different look</strong>, so its cast appears twice.</p>
-    <ul class="key">
-      <li><b>Click any image</b> to like it, dislike it or leave a comment</li>
-      <li><b>Every villager's name starts with V.</b> That is the running joke and it holds for any new one.</li>
-      <li>Page updated <b>16 Sep 2026</b></li>
-      <li>Assets render at <b>9:16</b>, always</li>
-    </ul>
+    <p class="fb-intro"><b>Click any image</b> to like it, dislike it or leave a comment.</p>
   </header>
 
   <div class="tabs" role="tablist">
@@ -965,7 +963,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
 })();
 </script>
 
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "", "supabaseAnonKey": "", "build": "c9498c2bd939"};</script>
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "", "supabaseAnonKey": "", "build": "9fc9f4366538"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
