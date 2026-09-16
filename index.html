@@ -983,7 +983,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
 })();
 </script>
 
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "", "supabaseAnonKey": "", "build": "b11bf565bb5b"};</script>
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "", "supabaseAnonKey": "", "build": "164c429aba7f"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
@@ -1266,9 +1266,9 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
     pending[id] = next || "none";
     renderAll();
     var q = next
-      ? sb.from("votes").upsert({ item_id: id, client_id: clientId, value: next, updated_at: new Date().toISOString() },
+      ? sb.from("storyboard_votes").upsert({ item_id: id, client_id: clientId, value: next, updated_at: new Date().toISOString() },
                                 { onConflict: "item_id,client_id" })
-      : sb.from("votes").delete().eq("item_id", id).eq("client_id", clientId);
+      : sb.from("storyboard_votes").delete().eq("item_id", id).eq("client_id", clientId);
     q.then(function (r) {
       delete pending[id];
       if (r.error) {
@@ -1290,7 +1290,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
     var id = current;
     send.disabled = true;
     showMsg("");
-    sb.from("comments").insert({ item_id: id, author: author, body: body }).select().single().then(function (r) {
+    sb.from("storyboard_comments").insert({ item_id: id, author: author, body: body }).select().single().then(function (r) {
       send.disabled = false;
       if (r.error) { showMsg("Your comment didn't send — check your connection and try again."); return; }
       comments.set(r.data.id, r.data);
@@ -1305,8 +1305,8 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
   var live = false;
   function load() {
     return Promise.all([
-      sb.from("votes").select("item_id,client_id,value").limit(5000),
-      sb.from("comments").select("id,item_id,author,body,created_at").order("created_at").limit(5000),
+      sb.from("storyboard_votes").select("item_id,client_id,value").limit(5000),
+      sb.from("storyboard_comments").select("id,item_id,author,body,created_at").order("created_at").limit(5000),
     ]).then(function (res) {
       if (res[0].error || res[1].error) return;
       votes = new Map();
@@ -1326,7 +1326,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
   if (connected) {
     load();
     sb.channel("storyboard-feedback")
-      .on("postgres_changes", { event: "*", schema: "public", table: "votes" }, function (p) {
+      .on("postgres_changes", { event: "*", schema: "public", table: "storyboard_votes" }, function (p) {
         if (p.eventType === "DELETE") {
           if (p.old && p.old.item_id) votes.delete(p.old.item_id + "|" + p.old.client_id);
         } else if (p.new) {
@@ -1334,7 +1334,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
         }
         renderAll();
       })
-      .on("postgres_changes", { event: "*", schema: "public", table: "comments" }, function (p) {
+      .on("postgres_changes", { event: "*", schema: "public", table: "storyboard_comments" }, function (p) {
         if (p.eventType === "DELETE") { if (p.old && p.old.id != null) comments.delete(p.old.id); }
         else if (p.new) comments.set(p.new.id, p.new);
         renderAll();
