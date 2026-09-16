@@ -130,11 +130,14 @@
 }
 @media (max-width: 760px) {
   .fb-lb { place-items: stretch; padding-inline: 10px; }
-  .fb-box { grid-template-columns: 1fr; max-height: calc(100vh - 20px); overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+  /* A plain stack, not a grid: a height-capped grid squeezes its rows, which let the image run under the
+     comments and the comments run under the form. Stacked blocks keep their natural height and the box scrolls. */
+  .fb-box { display: block; max-height: calc(100vh - 20px); overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+  .fb-media { min-height: auto; }
   .fb-media img { max-height: 55vh; margin-inline: auto; }
   /* On a phone the whole window scrolls, so the panel and its comment list size to their content.
      Desktop's min-height:0 + flex:1 would squeeze the list and let comments paint over the form. */
-  .fb-side { border-left: 0; border-top: 1px solid var(--edge); min-height: auto; }
+  .fb-side { border-left: 0; border-top: 1px solid var(--edge); min-height: auto; background: var(--surface); }
   .fb-head { position: sticky; top: 0; z-index: 1; background: var(--surface); padding: 12px 14px 10px; }
   .fb-title { font-size: 21px; }
   .fb-close { width: 44px; height: 44px; font-size: 26px; }
@@ -987,7 +990,7 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
 })();
 </script>
 
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "0d099810d895"};</script>
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "4e4d249fa966"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
