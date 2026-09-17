@@ -337,6 +337,16 @@ footer code { font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var
 }
 .script em { color:var(--ink-faint); }
 @media (max-width:560px) { .grid { grid-template-columns:repeat(auto-fill,minmax(158px,1fr)); gap:14px; } }
+.carousel-viewport { position:relative; }
+.carousel-viewport .cslide { display:none; }
+.carousel-viewport .cslide.active { display:block; }
+.carousel-nav { position:absolute; top:50%; transform:translateY(-50%); background:rgba(10,12,16,.55); color:#fff; border:none; width:30px; height:30px; border-radius:50%; cursor:pointer; font-size:16px; line-height:1; display:flex; align-items:center; justify-content:center; z-index:2; }
+.carousel-nav:hover { background:rgba(10,12,16,.8); }
+.carousel-prev { left:8px; }
+.carousel-next { right:8px; }
+.carousel-dots { position:absolute; bottom:10px; left:0; right:0; display:flex; justify-content:center; gap:6px; z-index:2; }
+.carousel-dots .dot { width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.45); cursor:pointer; border:none; padding:0; }
+.carousel-dots .dot.active { background:#fff; }
 </style>
 
 <div class="wrap">
@@ -991,8 +1001,28 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
   });
 })();
 </script>
+<script>
+(function () {
+  var carousels = Array.prototype.slice.call(document.querySelectorAll('[data-carousel]'));
+  carousels.forEach(function (car) {
+    var slides = Array.prototype.slice.call(car.querySelectorAll('.cslide'));
+    var dots = Array.prototype.slice.call(car.querySelectorAll('.carousel-dots .dot'));
+    var idx = 0;
+    function show(i) {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach(function (s, j) { s.classList.toggle('active', j === idx); });
+      dots.forEach(function (d, j) { d.classList.toggle('active', j === idx); });
+    }
+    var prev = car.querySelector('.carousel-prev');
+    var next = car.querySelector('.carousel-next');
+    if (prev) prev.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); show(idx - 1); });
+    if (next) next.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); show(idx + 1); });
+    dots.forEach(function (d, j) { d.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); show(j); }); });
+  });
+})();
+</script>
 
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "1739fc290e57"};</script>
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "28017a74e1b0"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
