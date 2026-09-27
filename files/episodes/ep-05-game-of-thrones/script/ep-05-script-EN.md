@@ -1,123 +1,60 @@
 # VASLUI OF THRONES
-### Escape from Vaslui — Episode 5
-
-*The Game of Thrones opening titles, Vaslui style. No dialogue. Vertical, about one minute.*
-*Music: the Game of Thrones theme, played as manele.*
+### The opening minute — shot list
+60 sec · 14 shots · no dialogue · 9:16
 
 ---
 
-**1. THE MAP**
+**1 · 0:00–0:05 — The Astrolabe**
+The astrolabe: a sun with rings turning around it, as in the original opening. The rings are Vaslui
+junk (bicycle wheels, beer-barrel hoops, or anything else), with something else at the centre in
+place of the sun.
+*Junk clockwork. Sets the whole world in one object.*
 
-The theme kicks in on a Romanian manele beat.
+**2 · 0:05–0:09 — Into the county**
+The camera tips off the sky onto the real Vaslui: ploughed fields, low hills, dirt roads running from
+village to village.
 
-A glowing onion spins in the sky, ringed by rusty barrel hoops, the way the brass sun turns in the
-original opening.
+**3 · 0:09–0:13 — Pig's Landing**
+The camera flies low over the fields and comes over a hill, and there it is: a huge pig pen built
+like a castle, with towers made of stacked crates and tin sheets, and smoke coming off the roofs.
 
-The camera drops down onto a huge map of **VASLUI COUNTY**. It is painted on an old village tablecloth,
-with mud stains and a ring left by a glass of tuica.
+**4 · 0:13–0:18 — The pig army**
+The gates swing open. Armoured pigs march out in ranks, dented helmets over their ears. **Valeriu** is at
+the head, his gold chain over the breastplate.
 
----
+**5 · 0:18–0:22 — The shepherd**
+Straight down on a bare field. He lifts the drone proudly over his head. It explodes. The smoke clears and
+he is still standing, smiling, black with soot, unhurt.
 
-**2. PIG'S LANDING**
+**6 · 0:22–0:28 — Drunkenfell**
+Down into a valley of churned mud. The drunk army staggers out in cooking-pot helmets and washboard
+breastplates. One falls flat, and the ranks walk over him. **Viorel** leads, his red axe on his shoulder.
 
-The camera races across the map to the first land: **PIG'S LANDING**.
+**7 · 0:28–0:32 — Goosestone**
+Wings overhead. Three geese in leather caps and goggles fly in, with the three **Angels** riding them.
 
-A castle rises out of the map like clockwork. It is a pig sty with towers.
+**8 · 0:32–0:36 — Dragon fire**
+An Angel tips țuică into her goose's beak. It coughs and sprays a long jet of alcohol where the fire
+should be.
 
-The gates open. **THE PIG ARMY** marches out in perfect ranks, every pig in oversized, dented iron
-armour.
+**9 · 0:36–0:41 — Grannygarden**
+Out of the cabbage rows the grannies charge on pig-back: headscarves flying, axes, rolling pins,
+slippers. **Vasilica** is out front.
 
-At their head rides **VALERIU**, helmet on, his gold *Vaslui* chain gleaming over his breastplate.
+**10 · 0:41–0:45 — The Mona**
+Close on **Vasile**. He cracks the bottle and drinks. His skin goes ice-white and his eyes light up blue. His beanie
+and beard are unchanged.
 
----
+**11 · 0:45–0:49 — They turn**
+Behind him the villagers go white row by row and fall in, walking like the dead. The camera pulls back
+to show how many there are.
 
-**3. THE DRONE SHEPHERD**
+**12 · 0:49–0:53 — The square**
+All five armies pour in from five directions and fill the square. It is the first time the camera stops moving.
 
-The camera flies on over the map. On the way we look straight down on a field.
+**13 · 0:53–0:58 — The bow**
+The little king sits on a throne of pitchforks, sickles, onion braids and Mona bottles. Every leader drops
+to one knee. He grins.
 
-A **SHEPHERD** stands there alone in a grey fedora and a striped polo shirt. He proudly lifts a drone
-above his head.
-
-**BOOM.** The drone explodes in his hands. The smoke clears and he is still standing there, black with
-soot, not a scratch on him.
-
----
-
-**4. DRUNKENFELL**
-
-The next land rises from the map: **DRUNKENFELL**.
-
-**THE ARMY OF DRUNKS** staggers out. They are village men in battered, improvised armour: cooking pots
-for helmets, washboards for breastplates. They carry pitchforks, axes and bottles.
-
-They sway through the mud. One falls face-first. Then another. The rest just keep marching over them.
-
-At the front, **VIOREL**, his bloody axe on his shoulder.
-
----
-
-**5. GOOSESTONE**
-
-Wings beat overhead. Over **GOOSESTONE** come the "dragons": **THREE GEESE** in leather aviator caps
-and goggles.
-
-On their backs ride **THE VASLUI ANGELS**: Princess Pitzi, Ducesa Doina and Lady Lola.
-
-In mid-flight the Angels pour tuica straight into the geese's beaks. The geese spray it out in great
-bursts, like dragon fire.
-
----
-
-**6. GRANNYGARDEN**
-
-**GRANNYGARDEN** rises from the map.
-
-**THE GRANNY ARMY** charges out: the village grannies in headscarves, **riding pigs**, waving axes,
-rolling pins, frying pans and slippers.
-
-Leading the charge: **VASILICA**.
-
----
-
-**7. THE LAND OF ALWAYS HANGOVER**
-
-The map turns cold and white: **THE LAND OF ALWAYS HANGOVER**.
-
-**VASILE** stands in the snow with a row of villagers behind him. He opens a bottle of **Mona** and
-takes a long drink.
-
-His skin turns ice-white. His eyes glow blue. He is **THE NIGHT KING**.
-
-Behind him the villagers turn white one after another, blue eyes lighting up down the line. They
-start to shuffle after him like zombies: **THE WHITE WALKERS**.
-
----
-
-**8. THE THRONE**
-
-All five armies pour into the **VILLAGE SQUARE** from every side: the pigs, the drunks, the geese
-overhead, the grannies on their pigs and the White Walkers.
-
-In the centre stands **THE VASLUI IRON THRONE**. It is the famous throne, but built from pitchforks,
-axes and sickles, woven with braids of onions, bottles of tuica and Mona, and village junk.
-
-On it sits **THE KING**.
-
----
-
-**9. THE BOW**
-
-The leaders step forward and kneel: **Valeriu**, **Viorel**, **the three Angels**, **Vasilica** and
-**the Night King Vasile**.
-
-Behind them, the whole of Vaslui bows.
-
-Silence. Hold on the King.
-
-He breaks into a huge, cheeky grin.
-
----
-
-**10. TITLE**
-
-## VASLUI OF THRONES
+**14 · 0:58–1:00 — Title**
+Hard cut. **VASLUI OF THRONES.**
