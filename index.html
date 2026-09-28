@@ -1200,7 +1200,34 @@ html[dir=rtl] pre.client-script{text-align:right}
 })();
 </script>
 <!--he-toggle:end-->
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "e4671929e116"};</script>
+<!--local-lightbox:start-->
+<style>
+.llb{position:fixed;inset:0;z-index:9999;background:rgba(8,9,12,.92);display:flex;align-items:center;justify-content:center;cursor:zoom-out}
+.llb[hidden]{display:none}
+.llb img{max-width:96vw;max-height:94vh;object-fit:contain;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.llb button{position:absolute;top:12px;right:14px;background:none;border:0;color:#fff;font-size:30px;line-height:1;cursor:pointer}
+</style>
+<script>
+/* Opens images inside the page when the published site's feedback viewer is not present (the local file). */
+window.addEventListener("load", function () {
+  if (document.querySelector(".fb-hit")) return;          // the site has its own viewer
+  var box = document.createElement("div"); box.className = "llb"; box.hidden = true;
+  var big = document.createElement("img"); big.alt = "";
+  var x = document.createElement("button"); x.type = "button"; x.setAttribute("aria-label", "Close"); x.textContent = "×";
+  box.appendChild(big); box.appendChild(x); document.body.appendChild(box);
+  function close() { box.hidden = true; big.removeAttribute("src"); }
+  box.addEventListener("click", close);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+  document.querySelectorAll("a").forEach(function (a) {
+    var img = a.querySelector("img"), href = a.getAttribute("href") || "";
+    if (!img || !/\.(png|jpe?g|webp|gif)(\?|$)/i.test(href)) return;
+    a.removeAttribute("target");
+    a.addEventListener("click", function (e) { e.preventDefault(); big.src = href; big.alt = img.alt || ""; box.hidden = false; });
+  });
+});
+</script>
+<!--local-lightbox:end-->
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "446e7e29f13b"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
