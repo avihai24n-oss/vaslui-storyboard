@@ -26,6 +26,10 @@ h2{font-size:19px;margin:34px 0 10px;font-weight:700}
 .who.avihai{background:#e8f4f5;color:#0f5f68}.who.aviv{background:#fdeee6;color:#9a3d12}
 li.note{border-top:1px solid var(--line)}
 .notebox{margin:12px 0;padding:12px 16px;background:#fff8e1;border-right:4px solid #f2b705;font-size:17px;unicode-bidi:plaintext}
+.filter{display:flex;gap:8px;margin:0 0 6px}
+.filter button{font:600 15px Heebo,sans-serif;padding:8px 16px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;cursor:pointer;min-height:40px}
+.filter button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+li.hide{display:none}
 .legend{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--soft);margin:0 0 4px}
 </style>
 </head>
@@ -34,35 +38,35 @@ li.note{border-top:1px solid var(--line)}
 <h1>דגשים</h1>
 <p class="meta">ניר פורת · 20.10.2026</p>
 <p class="count" id="count"></p>
-<p class="legend"><span class="who avihai">אביחי</span><span class="who aviv">אביב</span></p>
+<div class="filter" role="group" aria-label="סינון"><button type="button" data-f="all" aria-pressed="true">הכול</button><button type="button" data-f="avihai" aria-pressed="false">אביחי</button><button type="button" data-f="aviv" aria-pressed="false">אביב</button></div>
 <h2>תיקונים — מה שכבר עשינו (עד שכולם רצים לבקבוק)</h2>
 <ul>
-<li><label><input type="checkbox" data-id="n1"><span class="txt">הייתי מנסה לסדר את זה כך כשמתחילות המילים של השיר, מתחילה החטיפה על המטוס (אפשר לוותר אולי על הקטע שהם יושבים ומסתכלים אחד על השני לפני החטיפה).</span><span class="who avihai">אביחי</span></label></li>
-<li><label><input type="checkbox" data-id="n2"><span class="txt">להוריד את כל המלל בסרטון (this plane is under attack, time to party) ומשאיר רק את המלל בסוף של האנס עם העז</span><span class="who aviv">אביב</span></label></li>
-<li><label><input type="checkbox" data-id="n3"><span class="txt">הקטע עם הדיילים נראה לא מספיק טבעי. הם עומדים שם בלי לזוז. פחות אהבתי. וגם הייתי מאיץ את זה עוד. שכל החטיפה תקרה יותר מהר.</span><span class="who avihai">אביחי</span></label></li>
-<li><label><input type="checkbox" data-id="n4"><span class="txt">הדיילת שחוטפת את הנקניקיות הייתי עושה שהיא מתפוצצת מזה ולא נופלת אחורה. נראה לי מצחיק יותר שתתפוצץ</span><span class="who avihai">אביחי</span></label></li>
-<li><label><input type="checkbox" data-id="n5"><span class="txt">הטייסים בקוקפיט זה אותו אדם פעמיים<br>שייראו קצת שונה אחד מהשני</span><span class="who avihai">אביחי</span></label></li>
-<li><label><input type="checkbox" data-id="n6"><span class="txt">ריצה יותר מהירה עם הרימון מונה לקוקפיט</span><span class="who avihai">אביחי</span></label></li>
-<li><label><input type="checkbox" data-id="n7"><span class="txt">כל החטיפה לעשות קצת יותר מהיר</span><span class="who avihai">אביחי</span></label></li>
-<li><label><input type="checkbox" data-id="n8"><span class="txt">את המונה שנפתחת על ידי הנוסע הייתי משנה לבקבוק tuica<br>יש לנו יותר מדי מונה בסרטון. אולי זה משהו שיש לו ולא מתגלגל אליו.</span><span class="who aviv">אביב</span></label></li>
-<li><label><input type="checkbox" data-id="n9"><span class="txt">כשהטויקה נפתחת על ידי הנוסע, תראו את כל החוטפים שלנו באותו זמן במסך מפוצל (כל אחד במיקום שלו על המטוס) עם תגובות דומות לזה של הזקנה - החושים שלהם נדלקים כשנפתח הבקבוק</span><span class="who avihai">אביחי</span></label></li>
-<li><label><input type="checkbox" data-id="n10"><span class="txt">המסך המפוצל ממשיך ורואים את כל הדמויות רצות ממיקום אחר במטוס ונפגשים ליד הנוסע עם הבקבוק<br>שם מסתיים המסך המפוצל והם כולם שם ביחד איתו</span><span class="who aviv">אביב</span></label></li>
-<li><label><input type="checkbox" data-id="a1"><span class="txt">הקטע עם הכפכף — לעשות שוב</span><span class="who aviv">אביב</span></label></li>
-<li><label><input type="checkbox" data-id="n18"><span class="txt">על המטוס אולי יהיה כתוב<br>Escape from vaslui בצבעים שלנו<br>במקום American Airlines</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n1"><span class="txt">הייתי מנסה לסדר את זה כך כשמתחילות המילים של השיר, מתחילה החטיפה על המטוס (אפשר לוותר אולי על הקטע שהם יושבים ומסתכלים אחד על השני לפני החטיפה).</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n2"><span class="txt">להוריד את כל המלל בסרטון (this plane is under attack, time to party) ומשאיר רק את המלל בסוף של האנס עם העז</span><span class="who aviv">אביב</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n3"><span class="txt">הקטע עם הדיילים נראה לא מספיק טבעי. הם עומדים שם בלי לזוז. פחות אהבתי. וגם הייתי מאיץ את זה עוד. שכל החטיפה תקרה יותר מהר.</span><span class="who aviv">אביב</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n4"><span class="txt">הדיילת שחוטפת את הנקניקיות הייתי עושה שהיא מתפוצצת מזה ולא נופלת אחורה. נראה לי מצחיק יותר שתתפוצץ</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n5"><span class="txt">הטייסים בקוקפיט זה אותו אדם פעמיים<br>שייראו קצת שונה אחד מהשני</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n6"><span class="txt">ריצה יותר מהירה עם הרימון מונה לקוקפיט</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n7"><span class="txt">כל החטיפה לעשות קצת יותר מהיר</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n8"><span class="txt">את המונה שנפתחת על ידי הנוסע הייתי משנה לבקבוק tuica<br>יש לנו יותר מדי מונה בסרטון. אולי זה משהו שיש לו ולא מתגלגל אליו.</span><span class="who aviv">אביב</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n9"><span class="txt">כשהטויקה נפתחת על ידי הנוסע, תראו את כל החוטפים שלנו באותו זמן במסך מפוצל (כל אחד במיקום שלו על המטוס) עם תגובות דומות לזה של הזקנה - החושים שלהם נדלקים כשנפתח הבקבוק</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n10"><span class="txt">המסך המפוצל ממשיך ורואים את כל הדמויות רצות ממיקום אחר במטוס ונפגשים ליד הנוסע עם הבקבוק<br>שם מסתיים המסך המפוצל והם כולם שם ביחד איתו</span><span class="who aviv">אביב</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="a1"><span class="txt">הקטע עם הכפכף — לעשות שוב</span><span class="who aviv">אביב</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n18"><span class="txt">על המטוס אולי יהיה כתוב<br>Escape from vaslui בצבעים שלנו<br>במקום American Airlines</span><span class="who avihai">אביחי</span></label></li>
 </ul>
 <h2>עוד לא בוצע — מהמסיבה והלאה</h2>
 <ul>
-<li><label><input type="checkbox" data-id="n11"><span class="txt">ווסיל מרים את הבקבוקי מונות שלו כמו שעשיתם ומתחילה המסיבה במטוס:</span><span class="who aviv">אביב</span></label></li>
-<li><label><input type="checkbox" data-id="n12"><span class="txt">אנשים והדמויות שלנו שותים ומשתכרים</span><span class="who aviv">אביב</span></label></li>
-<li><label><input type="checkbox" data-id="n13"><span class="txt">זקנה עושה lapdance לנוסע אמריקאי שמן עם חולצת הוואי</span><span class="who aviv">אביב</span></label></li>
-<li><label><input type="checkbox" data-id="n14"><span class="txt">ווסיל ויורל עושים ברביקיו על המטוס כמו זה שהיה בסרטון של החייזרים עם עשן במטוס</span><span class="who aviv">אביב</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n11"><span class="txt">ווסיל מרים את הבקבוקי מונות שלו כמו שעשיתם ומתחילה המסיבה במטוס:</span><span class="who aviv">אביב</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n12"><span class="txt">אנשים והדמויות שלנו שותים ומשתכרים</span><span class="who aviv">אביב</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n13"><span class="txt">זקנה עושה lapdance לנוסע אמריקאי שמן עם חולצת הוואי</span><span class="who aviv">אביב</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n14"><span class="txt">ווסיל ויורל עושים ברביקיו על המטוס כמו זה שהיה בסרטון של החייזרים עם עשן במטוס</span><span class="who aviv">אביב</span></label></li>
 <li class="note"><div class="notebox">💡 ונסו לחשוב על עוד דברים מצחיקים ולא קשורים למטוס🤣</div></li>
-<li><label><input type="checkbox" data-id="n16a"><span class="txt">החזיר טייס מעולף במסיבה עם בקבוקי אלכוהול סביבו במסיבה</span><span class="who aviv">אביב</span></label></li>
-<li><label><input type="checkbox" data-id="n16b"><span class="txt">וככה למעשה המטוס צולל ומתרסק</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="aviv"><label><input type="checkbox" data-id="n16a"><span class="txt">החזיר טייס מעולף במסיבה עם בקבוקי אלכוהול סביבו במסיבה</span><span class="who aviv">אביב</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n16b"><span class="txt">וככה למעשה המטוס צולל ומתרסק</span><span class="who avihai">אביחי</span></label></li>
 </ul>
 <h2>כללי</h2>
 <ul>
-<li><label><input type="checkbox" data-id="n17"><span class="txt">בואו ננסה שכל הסרטון יהיה דקה וחצי<br>שתי דקות יהיה לי כבר יקר מדי🤣</span><span class="who avihai">אביחי</span></label></li>
+<li data-who="avihai"><label><input type="checkbox" data-id="n17"><span class="txt">בואו ננסה שכל הסרטון יהיה דקה וחצי<br>שתי דקות יהיה לי כבר יקר מדי🤣</span><span class="who avihai">אביחי</span></label></li>
 </ul>
 </main>
 <script>
@@ -72,6 +76,12 @@ const boxes=[...document.querySelectorAll("input[type=checkbox]")];
 function count(){const d=boxes.filter(b=>b.checked).length;document.getElementById("count").textContent=d+" מתוך "+boxes.length;}
 boxes.forEach(b=>{b.checked=!!state[b.dataset.id];b.addEventListener("change",()=>{state[b.dataset.id]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){};count();});});
 count();
+const FKEY=KEY+"-filter";
+function applyFilter(f){document.querySelectorAll(".filter button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.f===f?"true":"false"));document.querySelectorAll("li[data-who]").forEach(li=>li.classList.toggle("hide",f!=="all"&&li.dataset.who!==f));document.querySelectorAll("li.note").forEach(li=>li.classList.toggle("hide",f!=="all"));const vis=boxes.filter(b=>!b.closest("li").classList.contains("hide"));document.getElementById("count").textContent=vis.filter(b=>b.checked).length+" מתוך "+vis.length;try{localStorage.setItem(FKEY,f)}catch(e){}}
+document.querySelectorAll(".filter button").forEach(b=>b.addEventListener("click",()=>applyFilter(b.dataset.f)));
+let f0="all";try{f0=localStorage.getItem(FKEY)||"all"}catch(e){}
+boxes.forEach(b=>b.addEventListener("change",()=>applyFilter(document.querySelector(".filter button[aria-pressed=true]").dataset.f)));
+applyFilter(f0);
 </script>
 </body>
 </html>
