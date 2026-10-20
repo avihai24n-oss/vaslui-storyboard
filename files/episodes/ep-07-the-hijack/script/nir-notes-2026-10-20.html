@@ -74,7 +74,9 @@ li.hide{display:none}
 </main>
 <script>
 const KEY="vaslui-ep07-nir-notes-2026-10-20";
-let state={}; try{state=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+// one-time carry-over of the ticks Avihai made on the local copy (Chrome, file://, 20 Oct 2026)
+const SEED={"n1":true,"n5":true,"n6":true,"n7":true,"n11":true};
+let state={}; try{const raw=localStorage.getItem(KEY); state=raw?JSON.parse(raw):SEED; if(!raw) localStorage.setItem(KEY,JSON.stringify(state));}catch(e){state=SEED}
 const boxes=[...document.querySelectorAll("input[type=checkbox]")];
 function count(){const d=boxes.filter(b=>b.checked).length;document.getElementById("count").textContent=d+" מתוך "+boxes.length;}
 boxes.forEach(b=>{b.checked=!!state[b.dataset.id];b.addEventListener("change",()=>{state[b.dataset.id]=b.checked;try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){};count();});});
