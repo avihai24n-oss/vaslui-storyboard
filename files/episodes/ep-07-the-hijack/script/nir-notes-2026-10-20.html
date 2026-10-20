@@ -19,8 +19,12 @@ li{border-top:1px solid var(--line)}
 li:last-child{border-bottom:1px solid var(--line)}
 label{display:flex;gap:14px;align-items:flex-start;padding:16px 2px;cursor:pointer;font-size:17px}
 input{width:22px;height:22px;margin-top:4px;flex:none;accent-color:var(--accent);cursor:pointer}
-input:checked+span{color:var(--done);text-decoration:line-through}
-span{unicode-bidi:plaintext}
+input:checked+span.txt{color:var(--done);text-decoration:line-through}
+span.txt{unicode-bidi:plaintext;flex:1}
+h2{font-size:19px;margin:34px 0 10px;font-weight:700}
+.who{flex:none;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;margin-top:3px;white-space:nowrap}
+.who.avihai{background:#e8f4f5;color:#0f5f68}.who.aviv{background:#fdeee6;color:#9a3d12}
+.legend{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--soft);margin:0 0 4px}
 </style>
 </head>
 <body>
@@ -28,25 +32,34 @@ span{unicode-bidi:plaintext}
 <h1>דגשים</h1>
 <p class="meta">ניר פורת · 20.10.2026</p>
 <p class="count" id="count"></p>
+<p class="legend"><span class="who avihai">אביחי</span><span class="who aviv">אביב</span></p>
+<h2>תיקונים — מה שכבר עשינו (עד שכולם רצים לבקבוק)</h2>
 <ul>
-<li><label><input type="checkbox" data-id="n1"><span>הייתי מנסה לסדר את זה כך כשמתחילות המילים של השיר, מתחילה החטיפה על המטוס (אפשר לוותר אולי על הקטע שהם יושבים ומסתכלים אחד על השני לפני החטיפה).</span></label></li>
-<li><label><input type="checkbox" data-id="n2"><span>להוריד את כל המלל בסרטון (this plane is under attack, time to party) ומשאיר רק את המלל בסוף של האנס עם העז</span></label></li>
-<li><label><input type="checkbox" data-id="n3"><span>הקטע עם הדיילים נראה לא מספיק טבעי. הם עומדים שם בלי לזוז. פחות אהבתי. וגם הייתי מאיץ את זה עוד. שכל החטיפה תקרה יותר מהר.</span></label></li>
-<li><label><input type="checkbox" data-id="n4"><span>הדיילת שחוטפת את הנקניקיות הייתי עושה שהיא מתפוצצת מזה ולא נופלת אחורה. נראה לי מצחיק יותר שתתפוצץ</span></label></li>
-<li><label><input type="checkbox" data-id="n5"><span>הטייסים בקוקפיט זה אותו אדם פעמיים<br>שייראו קצת שונה אחד מהשני</span></label></li>
-<li><label><input type="checkbox" data-id="n6"><span>ריצה יותר מהירה עם הרימון מונה לקוקפיט</span></label></li>
-<li><label><input type="checkbox" data-id="n7"><span>כל החטיפה לעשות קצת יותר מהיר</span></label></li>
-<li><label><input type="checkbox" data-id="n8"><span>את המונה שנפתחת על ידי הנוסע הייתי משנה לבקבוק tuica<br>יש לנו יותר מדי מונה בסרטון. אולי זה משהו שיש לו ולא מתגלגל אליו.</span></label></li>
-<li><label><input type="checkbox" data-id="n9"><span>כשהטויקה נפתחת על ידי הנוסע, תראו את כל החוטפים שלנו באותו זמן במסך מפוצל (כל אחד במיקום שלו על המטוס) עם תגובות דומות לזה של הזקנה - החושים שלהם נדלקים כשנפתח הבקבוק</span></label></li>
-<li><label><input type="checkbox" data-id="n10"><span>המסך המפוצל ממשיך ורואים את כל הדמויות רצות ממיקום אחר במטוס ונפגשים ליד הנוסע עם הבקבוק<br>שם מסתיים המסך המפוצל והם כולם שם ביחד איתו</span></label></li>
-<li><label><input type="checkbox" data-id="n11"><span>ווסיל מרים את הבקבוקי מונות שלו כמו שעשיתם ומתחילה המסיבה במטוס:</span></label></li>
-<li><label><input type="checkbox" data-id="n12"><span>אנשים והדמויות שלנו שותים ומשתכרים</span></label></li>
-<li><label><input type="checkbox" data-id="n13"><span>זקנה עושה lapdance לנוסע אמריקאי שמן עם חולצת הוואי</span></label></li>
-<li><label><input type="checkbox" data-id="n14"><span>ווסיל ויורל עושים ברביקיו על המטוס כמו זה שהיה בסרטון של החייזרים עם עשן במטוס</span></label></li>
-<li><label><input type="checkbox" data-id="n15"><span>ונסו לחשוב על עוד דברים מצחיקים ולא קשורים למטוס🤣</span></label></li>
-<li><label><input type="checkbox" data-id="n16"><span>החזיר טייס מעולף במסיבה עם בקבוקי אלכוהול סביבו במסיבה וככה למעשה המטוס צולל ומתרסק</span></label></li>
-<li><label><input type="checkbox" data-id="n17"><span>בואו ננסה שכל הסרטון יהיה דקה וחצי<br>שתי דקות יהיה לי כבר יקר מדי🤣</span></label></li>
-<li><label><input type="checkbox" data-id="n18"><span>על המטוס אולי יהיה כתוב<br>Escape from vaslui בצבעים שלנו<br>במקום American Airlines</span></label></li>
+<li><label><input type="checkbox" data-id="n1"><span class="txt">הייתי מנסה לסדר את זה כך כשמתחילות המילים של השיר, מתחילה החטיפה על המטוס (אפשר לוותר אולי על הקטע שהם יושבים ומסתכלים אחד על השני לפני החטיפה).</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n2"><span class="txt">להוריד את כל המלל בסרטון (this plane is under attack, time to party) ומשאיר רק את המלל בסוף של האנס עם העז</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n3"><span class="txt">הקטע עם הדיילים נראה לא מספיק טבעי. הם עומדים שם בלי לזוז. פחות אהבתי. וגם הייתי מאיץ את זה עוד. שכל החטיפה תקרה יותר מהר.</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n4"><span class="txt">הדיילת שחוטפת את הנקניקיות הייתי עושה שהיא מתפוצצת מזה ולא נופלת אחורה. נראה לי מצחיק יותר שתתפוצץ</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n5"><span class="txt">הטייסים בקוקפיט זה אותו אדם פעמיים<br>שייראו קצת שונה אחד מהשני</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n6"><span class="txt">ריצה יותר מהירה עם הרימון מונה לקוקפיט</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n7"><span class="txt">כל החטיפה לעשות קצת יותר מהיר</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n8"><span class="txt">את המונה שנפתחת על ידי הנוסע הייתי משנה לבקבוק tuica<br>יש לנו יותר מדי מונה בסרטון. אולי זה משהו שיש לו ולא מתגלגל אליו.</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n9"><span class="txt">כשהטויקה נפתחת על ידי הנוסע, תראו את כל החוטפים שלנו באותו זמן במסך מפוצל (כל אחד במיקום שלו על המטוס) עם תגובות דומות לזה של הזקנה - החושים שלהם נדלקים כשנפתח הבקבוק</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n10"><span class="txt">המסך המפוצל ממשיך ורואים את כל הדמויות רצות ממיקום אחר במטוס ונפגשים ליד הנוסע עם הבקבוק<br>שם מסתיים המסך המפוצל והם כולם שם ביחד איתו</span><span class="who aviv">אביב</span></label></li>
+<li><label><input type="checkbox" data-id="a1"><span class="txt">הקטע עם הכפכף — לעשות שוב</span><span class="who aviv">אביב</span></label></li>
+<li><label><input type="checkbox" data-id="n18"><span class="txt">על המטוס אולי יהיה כתוב<br>Escape from vaslui בצבעים שלנו<br>במקום American Airlines</span><span class="who avihai">אביחי</span></label></li>
+</ul>
+<h2>עוד לא בוצע — מהמסיבה והלאה</h2>
+<ul>
+<li><label><input type="checkbox" data-id="n11"><span class="txt">ווסיל מרים את הבקבוקי מונות שלו כמו שעשיתם ומתחילה המסיבה במטוס:</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n12"><span class="txt">אנשים והדמויות שלנו שותים ומשתכרים</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n13"><span class="txt">זקנה עושה lapdance לנוסע אמריקאי שמן עם חולצת הוואי</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n14"><span class="txt">ווסיל ויורל עושים ברביקיו על המטוס כמו זה שהיה בסרטון של החייזרים עם עשן במטוס</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n15"><span class="txt">ונסו לחשוב על עוד דברים מצחיקים ולא קשורים למטוס🤣</span><span class="who avihai">אביחי</span></label></li>
+<li><label><input type="checkbox" data-id="n16"><span class="txt">החזיר טייס מעולף במסיבה עם בקבוקי אלכוהול סביבו במסיבה וככה למעשה המטוס צולל ומתרסק</span><span class="who avihai">אביחי</span></label></li>
+</ul>
+<h2>כללי</h2>
+<ul>
+<li><label><input type="checkbox" data-id="n17"><span class="txt">בואו ננסה שכל הסרטון יהיה דקה וחצי<br>שתי דקות יהיה לי כבר יקר מדי🤣</span><span class="who avihai">אביחי</span></label></li>
 </ul>
 </main>
 <script>
