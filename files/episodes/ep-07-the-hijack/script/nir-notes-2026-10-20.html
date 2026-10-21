@@ -115,6 +115,9 @@ const KEY="vaslui-ep07-nir-notes-2026-10-20";
 // one-time carry-over of the ticks Avihai made on the local copy (Chrome, file://, 20 Oct 2026)
 const SEED={};
 let state={}; try{const raw=localStorage.getItem(KEY); state=raw?JSON.parse(raw):SEED; if(!raw) localStorage.setItem(KEY,JSON.stringify(state));}catch(e){state=SEED}
+// one-time sync: make this browser match the ticks Avihai made on the local copy (Chrome, file://, 21 Oct 2026 14:40)
+const SYNC_ID="2026-10-21-local", SYNC={"n1":true,"n2":true,"n3":true,"n4":true,"n5":true,"n6":true,"n7":true,"n8":true,"n9":true,"n10":true,"n11":true,"n12":true,"n13":true,"n14":true,"n16a":true,"n16b":true,"n18":true,"m1":true,"m2":true,"m3":true,"m4":true,"m5":true,"m5b":true};
+try{ if(localStorage.getItem(KEY+"-sync")!==SYNC_ID){ state=Object.assign({},SYNC); localStorage.setItem(KEY,JSON.stringify(state)); localStorage.setItem(KEY+"-sync",SYNC_ID);} }catch(e){}
 // 21 Oct 2026: Avihai — every 20.10 item is done
 document.querySelectorAll("#t1020 input[type=checkbox]").forEach(b=>{if(state[b.dataset.id]===undefined||true)state[b.dataset.id]=true});try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}
 let TAB="t1021";
