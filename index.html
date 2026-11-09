@@ -1126,20 +1126,39 @@ a.frame{display:block}.pending{display:grid;place-items:center;min-height:130px;
       document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
     });
     document.getElementById('panel-cast-footer').hidden = tab.id !== 'tab-cast';
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    try { sessionStorage.setItem('vaslui-tab', tab.id); } catch (e) {}
+    if (!keepScroll) window.scrollTo({ top: 0, behavior: 'instant' });
   }
-  if (location.hash.indexOf('ep7')===1) { select(document.getElementById('tab-ep7')); }
+  var keepScroll = false;
+  function rememberScroll() { try { sessionStorage.setItem('vaslui-scroll', String(window.scrollY)); } catch (e) {} }
+  window.addEventListener('pagehide', rememberScroll);
+  window.addEventListener('beforeunload', rememberScroll);
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  var savedTab = null, savedScroll = 0;
+  try { savedTab = sessionStorage.getItem('vaslui-tab'); savedScroll = parseInt(sessionStorage.getItem('vaslui-scroll') || '0', 10) || 0; } catch (e) {}
+  if (!location.hash && savedTab && document.getElementById(savedTab)) {
+    keepScroll = true;
+    select(document.getElementById(savedTab));
+    keepScroll = false;
+    var goBack = function () { window.scrollTo({ top: savedScroll, behavior: 'instant' }); };
+    goBack(); requestAnimationFrame(goBack); window.addEventListener('load', goBack);
+  }
+  else if (location.hash.indexOf('ep7')===1) { select(document.getElementById('tab-ep7')); }
   else if (location.hash.indexOf('ep6')===1) { select(document.getElementById('tab-ep6')); }
   else if (location.hash.indexOf('ep5')===1) { select(document.getElementById('tab-ep5')); }
   else if (location.hash === '#ep4timeline' || location.hash === '#ep4missing' || location.hash === '#panel-ep4' || location.hash === '#ep4planned-images') {
     select(document.getElementById('tab-ep4'));
   }
   tabs.forEach(function (tab, i) {
-    tab.addEventListener('click', function () { select(tab); });
+    tab.addEventListener('click', function () {
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+      select(tab);
+    });
     tab.addEventListener('keydown', function (e) {
       if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
       e.preventDefault();
       var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
       next.focus(); select(next);
     });
   });
@@ -1304,7 +1323,7 @@ html[dir=rtl] pre.client-script{text-align:right}
 })();
 </script>
 <!--he-toggle:end-->
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "0ccbc83943cb"};</script>
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "4112a2442d86"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
