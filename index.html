@@ -1228,7 +1228,7 @@ Very holy.</pre></div></section></div><div class="ep6-he" dir="rtl" style="text-
       var txt=r.querySelector('.sb8-txt'), ta=r.querySelector('.sb8-area');
       if(on){var s=shotOf(+r.dataset.n);if(!s)return;ta=document.createElement('textarea');ta.className='sb8-area';
         ta.value=s[he()?'see_he':'see_en'];ta.setAttribute('aria-label',L('What we see, shot ','מה רואים, שוט ')+r.dataset.n);
-        ta.dir='auto';txt.hidden=true;txt.after(ta);
+        ta.dir='auto';txt.hidden=true;txt.after(ta);var fit=function(){ta.style.height='auto';ta.style.height=(ta.scrollHeight+4)+'px';};fit();ta.addEventListener('input',fit);
         var timer;ta.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(function(){save(r,ta);},900);});
         ta.addEventListener('blur',function(){clearTimeout(timer);save(r,ta);});}
       else{if(ta){save(r,ta);ta.remove();}txt.hidden=false;showText(r);}
@@ -1491,7 +1491,7 @@ html[dir=rtl] pre.client-script{text-align:right}
 })();
 </script>
 <!--he-toggle:end-->
-<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "c281e9debda7"};</script>
+<script>window.STORYBOARD_FEEDBACK = {"supabaseUrl": "https://xwgtmynpkplxlltifhes.supabase.co", "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh3Z3RteW5wa3BseGxsdGlmaGVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0ODA2ODEsImV4cCI6MjA4NTA1NjY4MX0.7O6wqADbLrhqrMLGLCUUgohXMOn5a44ievwRxV32kyw", "build": "9a9819b3ade6"};</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
 <script>
 /* Storyboard feedback — like / dislike / comment on every image, shared live through Supabase.
